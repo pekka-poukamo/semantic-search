@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Button Example</title>
+    <script>
+      function generateToken() {
+        const secretKey = 'pekkaonparasjaemmakans';
+        return secretKey;
+      }
+      
+      function handleClick() {
+        const url = "https://9l86ln-3000.csb.app/search";
+        const token = generateToken();
+        const query = document.getElementById("input").value; // Get input value
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=UTF-8",
+          },
+          body: JSON.stringify({ 
+            message: "Hello, world!",
+            query, // Use input value as query parameter
+            token
+          })
+        };
+        
+        fetch(url, options)
+          .then(response => {
+            console.log('response', JSON.stringify(response))
+            return response.json() // Parse response as JSON
+          }) 
+          .then(data => {
+            console.log(data)
+            //console.log(data.map(obj => obj.matchData.metadata.data))
+            
+            const outputDiv = document.getElementById("output"); // Get the output <div> element
+            
+            let html = '';
+            
+            for (let i = 0; i < data.length; i++) {
+              html += '<div>'
+              html += '<h2>' + data[i].title + '</h2>'
+              html += '<p>' + data[i].content + '</p>'
+              html += '</div>'
+            }
+            outputDiv.innerHTML = html
+          })
+          .catch(error => {
+            console.log('error!')
+            console.log(error)
+          });
+        document.getElementById("input").value = ""; // Empty input field
+      }
+      
+    </script>
+  </head>
+  <body>
+    <input type="text" id="input" placeholder="Enter query here"> <!-- Input field -->
+    <button onclick="handleClick()">Click me</button>
+    <div id="output"></div>
+  </body>
+</html>

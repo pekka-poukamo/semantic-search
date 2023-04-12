@@ -1,0 +1,5 @@
+*.key
+yarn.lock
+materials/*
+models/*
+node_modules/*

@@ -1,23 +1,14 @@
 {
-  "name": "templateforv2-static",
+  "name": "semantic-search-model",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "nodemon index.js",
-    "build": "echo This is a static template, there is no bundler or bundling involved!"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/codesandbox-app/static-template.git"
+    "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "Ives van Hoorne",
+  "author": "Pekka Poukamo",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/codesandbox-app/static-template/issues"
-  },
-  "homepage": "https://github.com/codesandbox-app/static-template#readme",
   "devDependencies": {},
   "dependencies": {
     "body-parser": "^1.20.2",
